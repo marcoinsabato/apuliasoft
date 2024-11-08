@@ -1,5 +1,5 @@
 <script setup>
-import { Head, Link, usePage, router } from '@inertiajs/vue3';
+import { Head, usePage, router } from '@inertiajs/vue3';
 import { watch, reactive, onMounted, computed } from 'vue';
 
 const { activities, avaiableAggregations } = defineProps({
