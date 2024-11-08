@@ -62,37 +62,39 @@ watch(
 
 <template>
     <Head title="Welcome" />
-    <div class="bg-gray-50 text-black/50 dark:bg-black dark:text-white/50 min-h-screen">
+    <div class="bg-gray-50 text-black/50 dark:bg-gray-900 dark:text-white/50 min-h-screen">
         <div class="container mx-auto flex flex-col gap-y-6 pt-10">
             <h1 class="text-3xl font-bold text-center">Table with Activities</h1>
 
-   
-            <div class="flex gap-x-2 items-center" id="buttonsWrapper">
-                <h2 class="block text-lg">
+            <div>
+                <h2 class="block text-lg mb-2">
                     Aggrega le attivita' in base alle seguenti categorie:
                 </h2>
-                <template v-for="aggregation in avaiableAggregations">
-                    <label 
-                        :for="aggregation" 
-                        class="relative inline-flex items-center cursor-pointer text-white  hover:bg-purple-800 focus:outline-none focus:ring-4 focus:ring-purple-300 font-medium rounded-full text-sm px-5 py-2.5 text-center dark:hover:bg-purple-700 dark:focus:ring-purple-900 border border-purple-700 dark:border-purple-600"
-                        :class="{ 'bg-purple-700 dark:bg-purple-600' : isAggregationActive(aggregation) }"    
-                    >
-                        <input 
-                            type="checkbox" 
-                            :name="aggregation" 
-                            :value="aggregation" 
-                            v-model="params.aggregations" 
-                            :id="aggregation"
-                            class="hidden"
+       
+                <div class="flex flex-wrap gap-x-2 items-center" id="buttonsWrapper">
+                    <template v-for="aggregation in avaiableAggregations">
+                        <label 
+                            :for="aggregation" 
+                            class="relative inline-flex items-center cursor-pointer dark:text-white text-gray-900 hover:text-white  hover:bg-purple-800 focus:outline-none focus:ring-4 focus:ring-purple-300 font-medium rounded-full text-sm px-5 py-2.5 text-center dark:hover:bg-purple-700 dark:focus:ring-purple-900 border border-purple-700 dark:border-purple-600"
+                            :class="{ 'bg-purple-700 dark:bg-purple-600 text-white' : isAggregationActive(aggregation) }"    
                         >
-                        {{ aggregation }}
-                    </label>
-                </template>
-            </div>    
+                            <input 
+                                type="checkbox" 
+                                :name="aggregation" 
+                                :value="aggregation" 
+                                v-model="params.aggregations" 
+                                :id="aggregation"
+                                class="hidden"
+                            >
+                            {{ aggregation }}
+                        </label>
+                    </template>
+                </div>    
+            </div>
 
             <div class="relative overflow-x-auto" id="tableWrapper">
                 <table class="w-full text-sm text-left rtl:text-right text-gray-500 dark:text-gray-400">
-                    <thead class="text-xs text-gray-700 uppercase bg-gray-50 dark:bg-gray-700 dark:text-gray-400">
+                    <thead class="text-xs text-gray-700 uppercase bg-gray-100 dark:bg-gray-700 dark:text-gray-400">
                         <tr>
                             <th
                                 v-for="key in tableHeaders"
