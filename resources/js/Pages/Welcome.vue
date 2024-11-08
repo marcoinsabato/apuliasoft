@@ -63,7 +63,7 @@ watch(
 <template>
     <Head title="Welcome" />
     <div class="bg-gray-50 text-black/50 dark:bg-gray-900 dark:text-white/50 min-h-screen">
-        <div class="container mx-auto flex flex-col gap-y-6 pt-10">
+        <div class="container mx-auto flex flex-col gap-y-6 pt-10 px-2">
             <h1 class="text-3xl font-bold text-center">Table with Activities</h1>
 
             <div>
@@ -71,7 +71,7 @@ watch(
                     Aggrega le attivita' in base alle seguenti categorie:
                 </h2>
        
-                <div class="flex flex-wrap gap-x-2 items-center" id="buttonsWrapper">
+                <div class="flex flex-wrap gap-2 items-center" id="buttonsWrapper">
                     <template v-for="aggregation in avaiableAggregations">
                         <label 
                             :for="aggregation" 
@@ -93,7 +93,7 @@ watch(
             </div>
 
             <div class="relative overflow-x-auto" id="tableWrapper">
-                <table class="w-full text-sm text-left rtl:text-right text-gray-500 dark:text-gray-400">
+                <table class="w-full text-sm text-left rtl:text-right text-gray-500 dark:text-gray-400 table-auto">
                     <thead class="text-xs text-gray-700 uppercase bg-gray-100 dark:bg-gray-700 dark:text-gray-400">
                         <tr>
                             <th
